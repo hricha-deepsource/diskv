@@ -55,9 +55,7 @@ func TestIndexOrder(t *testing.T) {
 
 	expectedKeys := []string{"-", "1", "A", "a", "m"}
 	keys := []string{}
-	for _, key := range d.Index.Keys("", 100) {
-		keys = append(keys, key)
-	}
+	keys = append(keys, d.Index.Keys("", 100)...)
 
 	if !cmpStrings(keys, expectedKeys) {
 		t.Fatalf("got %s, expected %s", keys, expectedKeys)
